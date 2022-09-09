@@ -1,10 +1,14 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'hello',
-  template: `<h1>Hello {{name}}!</h1>`,
-  styles: [`h1 { font-family: Lato; }`]
+  selector: 'headLine',
+  template: `<h1>{{name}} a simple personal task sheduler</h1>`,
+  styles: [
+    `h1 { font-family: Lato;
+    margin-top=0px;
+   }`,
+  ],
 })
-export class HelloComponent  {
+export class HeadComponent {
   @Input() name: string;
 }
