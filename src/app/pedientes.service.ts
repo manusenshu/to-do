@@ -15,7 +15,7 @@ export class PedientesService {
   }
 
   getPediente(id: string | number) {
-    return this.http.get(`${this.baseUrl}/get.php?idPediente=${id}`);
+    return this.http.get(`${this.baseUrl}/get.php?idPendiente=${id}`);
   }
 
   addPediente(Pediente: Pediente) {
@@ -24,7 +24,7 @@ export class PedientesService {
 
   deletePediente(Pediente: Pediente) {
     return this.http.delete(
-      `${this.baseUrl}/delete.php?idPediente=${Pediente.id}`
+      `${this.baseUrl}/delete.php?idPendiente=${Pediente.id}`
     );
   }
 
