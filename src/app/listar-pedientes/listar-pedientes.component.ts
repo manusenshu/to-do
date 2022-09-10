@@ -22,14 +22,14 @@ export class ListarPedientesComponent implements OnInit {
   eliminarPediente(Pediente: Pediente) {
     this.dialogo
       .open(DialogoConfirmacionComponent, {
-        data: `¿Realmente quieres eliminar a ${Pediente.titulo}?`,
+        data: `¿Realmente quieres eliminar ${Pediente.titulo}?`,
       })
       .afterClosed()
       .subscribe((confirmado: Boolean) => {
         if (!confirmado) return;
         this.PedientesService.deletePediente(Pediente).subscribe(() => {
           this.obtenerPedientes();
-          this.snackBar.open('Pediente eliminada', undefined, {
+          this.snackBar.open('Pediente eliminado', undefined, {
             duration: 1500,
           });
         });

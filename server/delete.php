@@ -1,5 +1,5 @@
 <?php
-header("Access-Control-Allow-Origin: http://localhost:4200");
+header("Access-Control-Allow-Origin: https://angular-ivy-gdpfhs.stackblitz.io" );
 header("Access-Control-Allow-Methods: DELETE");
 $metodo = $_SERVER["REQUEST_METHOD"];
 if ($metodo != "DELETE" && $metodo != "OPTIONS") {

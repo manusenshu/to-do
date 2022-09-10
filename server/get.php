@@ -1,5 +1,5 @@
 <?php
-header("Access-Control-Allow-Origin: http://localhost:4200");
+header("Access-Control-Allow-Origin: https://angular-ivy-gdpfhs.stackblitz.io" );
 if (empty($_GET["idPendiente"])) {
     exit("No hay id de Pendiente");
 }
