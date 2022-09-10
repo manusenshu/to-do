@@ -1,4 +1,5 @@
-<!--
+<?php
+/*
 
     Programado por Luis Cabrera Benito 
   ____          _____               _ _           _       
@@ -14,19 +15,13 @@
     Blog:       https://parzibyte.me/blog
     Ayuda:      https://parzibyte.me/blog/contrataciones-ayuda/
     Contacto:   https://parzibyte.me/blog/contacto/
--->
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>CRUD Angular con PHP y MySQL</title>
-  <base href="./">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body class="mat-app-background">
-  <app-root></app-root>
-</body>
-</html>
+*/ ?>
+<?php
+$contraseña = "";
+$usuario = "root";
+$nombre_base_de_datos = "mascotas";
+try {
+    return new PDO('mysql:host=localhost;dbname=' . $nombre_base_de_datos, $usuario, $contraseña);
+} catch (Exception $e) {
+    echo "Ocurrió algo con la base de datos: " . $e->getMessage();
+}
