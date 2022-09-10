@@ -15,12 +15,10 @@
     Ayuda:      https://parzibyte.me/blog/contrataciones-ayuda/
     Contacto:   https://parzibyte.me/blog/contacto/
 */
-export class Mascota {
-    constructor(
-        public nombre: string,
-        public raza: string,
-        public edad: number,
-        public id?: number,
-    ) { }
+import { Mascota } from './mascota';
 
-}
+describe('Mascota', () => {
+  it('should create an instance', () => {
+    expect(new Mascota()).toBeTruthy();
+  });
+});

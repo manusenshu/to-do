@@ -15,12 +15,18 @@
     Ayuda:      https://parzibyte.me/blog/contrataciones-ayuda/
     Contacto:   https://parzibyte.me/blog/contacto/
 */
-export class Mascota {
-    constructor(
-        public nombre: string,
-        public raza: string,
-        public edad: number,
-        public id?: number,
-    ) { }
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-acerca-de',
+  templateUrl: './acerca-de.component.html',
+  styleUrls: ['./acerca-de.component.css']
+})
+export class AcercaDeComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
 
 }

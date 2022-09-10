@@ -1,0 +1,39 @@
+<h2>Agregar pendiente <mat-icon>check_circle_outline</mat-icon></h2>
+<form (ngSubmit)="onSubmit()" #formPendiente="ngForm">
+  <p>
+    <mat-form-field>
+      <input
+        matInput
+        name="titulo"
+        [(ngModel)]="pendienteModel.titulo"
+        type="text"
+        placeholder="Titulo"
+      />
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <input
+        matInput
+        name="descripcion"
+        [(ngModel)]="pendienteModel.descripcion"
+        type="text"
+        placeholder="Descripcion"
+      />
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <input
+        matInput
+        name="caducidad"
+        [(ngModel)]="pendienteModel.caducidad"
+        type="date"
+        placeholder="Caducidad"
+      />
+    </mat-form-field>
+  </p>
+  <p>
+    <button type="submit" mat-flat-button color="accent">Guardar</button>
+  </p>
+</form>
