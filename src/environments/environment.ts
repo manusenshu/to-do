@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: "http://localhost/mascotas_angular",
+  baseUrl: "http://localhost/Pedientes_angular",
 };
 
 /*
