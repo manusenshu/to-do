@@ -5,7 +5,7 @@ if (empty($_GET["idPendiente"])) {
 }
 $idPendiente = $_GET["idPendiente"];
 $bd = include_once "bd.php";
-$sentencia = $bd->prepare("select id, nombre, raza, edad from Pendientes where id = ?");
+$sentencia = $bd->prepare("select * from pendientes where id = ?");
 $sentencia->execute([$idPendiente]);
 $Pendiente = $sentencia->fetchObject();
 echo json_encode($Pendiente);

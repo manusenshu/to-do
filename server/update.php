@@ -10,6 +10,6 @@ if (!$jsonPendiente) {
     exit("No hay datos");
 }
 $bd = include_once "bd.php";
-$sentencia = $bd->prepare("UPDATE Pendientes SET nombre = ?, raza = ?, edad = ? WHERE id = ?");
-$resultado = $sentencia->execute([$jsonPendiente->nombre, $jsonPendiente->raza, $jsonPendiente->edad, $jsonPendiente->id]);
+$sentencia = $bd->prepare("UPDATE pendientes SET titulo = ?, descripcion = ?, fecha = ? WHERE id = ?");
+$resultado = $sentencia->execute([$jsonPendiente->titulo, $jsonPendiente->descripcion, $jsonPendiente->fecha, $jsonPendiente->id]);
 echo json_encode($resultado);

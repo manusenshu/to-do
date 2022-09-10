@@ -6,8 +6,8 @@ if (!$jsonPendiente) {
     exit("No hay datos");
 }
 $bd = include_once "bd.php";
-$sentencia = $bd->prepare("insert into Pendientes(nombre, raza, edad) values (?,?,?)");
-$resultado = $sentencia->execute([$jsonPendiente->nombre, $jsonPendiente->raza, $jsonPendiente->edad]);
+$sentencia = $bd->prepare("insert into pendientes(titulo, descripcion, fecha) values (?,?,CURDATE())");
+$resultado = $sentencia->execute([$jsonPendiente->titulo, $jsonPendiente->descripcion, $jsonPendiente->fecha]);
 echo json_encode([
     "resultado" => $resultado,
 ]);
