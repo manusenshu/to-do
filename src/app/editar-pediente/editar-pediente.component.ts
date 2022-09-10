@@ -9,8 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./editar-pediente.component.css'],
 })
 export class EditarPedienteComponent implements OnInit {
-  inicio = new Date('2022-09-06')
-  public Pediente: Pediente = new Pediente('', '', this.inicio, undefined, undefined, undefined, undefined);
+  public Pediente: Pediente = new Pediente('', '', undefined, undefined, undefined, undefined, undefined);
 
   constructor(
     private route: ActivatedRoute,
