@@ -1,7 +1,6 @@
 <h3>Agregar Pediente <mat-icon>add_circle_outline</mat-icon></h3>
 <form (ngSubmit)="onSubmit()" #formPediente="ngForm">
     <p>
-
         <mat-form-field>
             <input matInput name="titulo" [(ngModel)]="PedienteModel.titulo"
                 type="text"
@@ -18,7 +17,7 @@
     <p>
         <mat-form-field>
             <input matInput name="fecha" [(ngModel)]="PedienteModel.fecha"
-                type="number"
+                type="date"
                 placeholder="Fecha">
         </mat-form-field>
     </p>
