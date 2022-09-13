@@ -29,38 +29,33 @@ export class ListarPendientesComponent implements OnInit {
     private snackBar: MatSnackBar
   ) {}
 
-  getColor(country) {
-    2;
-    switch (country) {
+  getColor(estado) {
+    switch (estado) {
       case '0':
-        return 'blue';
+        return 'lightblue';
       case '1':
-        return 'green';
+        return 'blue';
       case '2':
-        return 'red';
+        return 'green';
     }
   }
 
   tomarPendiente(Pendiente: Pendiente) {
-    var toDo;
-    var does;
-    switch (Pendiente.estado) {
-      case 0: {
-        toDo = '¿Deseas tomar el pendiente ' + Pendiente.titulo + '?';
-        does = 'Has tomado el pendiente' + Pendiente.titulo + '!';
-        break;
-      }
-      case 1: {
-        toDo = '¿Deseas finalizar ' + Pendiente.titulo + '?';
-        does = 'Has finalizado el pendiente' + Pendiente.titulo + '!';
-        break;
-      }
-      case 2: {
-        toDo = '¿Deseas abrir nuevamente ' + Pendiente.titulo + '?';
-        does = 'Has abierto nuevamente el pendiente ' + Pendiente.titulo + '!';
-        break;
-      }
+    var toDo = '¿Deseas abrir nuevamente ' + Pendiente.titulo + '?';
+    var does = 'Has abierto nuevamente el pendiente ' + Pendiente.titulo + '!';
+    if (Pendiente.estado == 0) {
+      toDo = '¿Deseas tomar el pendiente ' + Pendiente.titulo + '?';
+      does = 'Has tomado el pendiente' + Pendiente.titulo + '!';
     }
+    if (Pendiente.estado == 1) {
+      toDo = '¿Deseas finalizar ' + Pendiente.titulo + '?';
+      does = 'Has finalizado el pendiente' + Pendiente.titulo + '!';
+    }
+    if (Pendiente.estado == 2) {
+      toDo = '¿Deseas abrir nuevamente ' + Pendiente.titulo + '?';
+      does = 'Has abierto nuevamente el pendiente ' + Pendiente.titulo + '!';
+    }
+
     this.dialogo
       .open(DialogoConfirmacionComponent, {
         data: toDo,

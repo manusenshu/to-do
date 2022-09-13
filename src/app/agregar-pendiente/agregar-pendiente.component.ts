@@ -24,7 +24,7 @@ export class AgregarPendienteComponent implements OnInit {
       this.snackBar.open('Pendiente guardado', undefined, {
         duration: 1500,
       });
-      this.router.navigate(['/Pendientes']);
+      this.router.navigate(['/pendientes']);
     });
   }
 }

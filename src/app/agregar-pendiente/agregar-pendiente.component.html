@@ -8,17 +8,24 @@
         </mat-form-field>
     </p>
     <p>
-        <mat-form-field>
-            <input matInput name="descripcion" [(ngModel)]="PendienteModel.descripcion"
-                type="text"
-                placeholder="Descripcion">
-        </mat-form-field>
+      <mat-form-field>
+        <textarea
+          matInput
+          name="descripcion"
+          [(ngModel)]="PendienteModel.descripcion"
+          type="text"
+          rows="4"
+          maxlength="250"
+          placeholder="Descripcion"
+        >
+        </textarea>
+      </mat-form-field>
     </p>
     <p>
         <mat-form-field>
-            <input matInput name="fecha" [(ngModel)]="PendienteModel.fecha"
+            <input matInput name="caducidad" [(ngModel)]="PendienteModel.caducidad"
                 type="date"
-                placeholder="Fecha">
+                placeholder="Caducidad">
         </mat-form-field>
     </p>
     <p>
