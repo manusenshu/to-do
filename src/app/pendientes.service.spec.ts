@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PendientesService } from './Pendientes.service';
+import { PendientesService } from './pendientes.service';
 
 describe('PendientesService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

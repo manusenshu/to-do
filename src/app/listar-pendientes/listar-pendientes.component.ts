@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { PendientesService } from '../Pendientes.service';
-import { Pendiente } from '../Pendiente';
+import { PendientesService } from '../pendientes.service';
+import { Pendiente } from '../pendiente';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogoConfirmacionComponent } from '../dialogo-confirmacion/dialogo-confirmacion.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
-  selector: 'app-listar-Pendientes',
-  templateUrl: './listar-Pendientes.component.html',
-  styleUrls: ['./listar-Pendientes.component.css'],
+  selector: 'app-listar-pendientes',
+  templateUrl: './listar-pendientes.component.html',
+  styleUrls: ['./listar-pendientes.component.css'],
 })
 export class ListarPendientesComponent implements OnInit {
   inicio = new Date('2022-09-06');
@@ -29,27 +29,38 @@ export class ListarPendientesComponent implements OnInit {
     private snackBar: MatSnackBar
   ) {}
 
+  getColor(country) {
+    2;
+    switch (country) {
+      case '0':
+        return 'blue';
+      case '1':
+        return 'green';
+      case '2':
+        return 'red';
+    }
+  }
+
   tomarPendiente(Pendiente: Pendiente) {
     var toDo;
-    switch(Pendiente.estado) { 
-      case 1: { 
-         //statements; 
-         break; 
-      } 
-      case 2: { 
-         //statements; 
-         break; 
-      } 
-      case 3: { 
+    var does;
+    switch (Pendiente.estado) {
+      case 0: {
+        toDo = '¿Deseas tomar el pendiente ' + Pendiente.titulo + '?';
+        does = 'Has tomado el pendiente' + Pendiente.titulo + '!';
+        break;
+      }
+      case 1: {
+        toDo = '¿Deseas finalizar ' + Pendiente.titulo + '?';
+        does = 'Has finalizado el pendiente' + Pendiente.titulo + '!';
+        break;
+      }
+      case 2: {
         toDo = '¿Deseas abrir nuevamente ' + Pendiente.titulo + '?';
-         break; 
-      } 
-      default: { 
-         toDo = '¿Deseas abrir nuevamente ' + Pendiente.titulo + '?';
-         break; 
-      } 
-   } 
-
+        does = 'Has abierto nuevamente el pendiente ' + Pendiente.titulo + '!';
+        break;
+      }
+    }
     this.dialogo
       .open(DialogoConfirmacionComponent, {
         data: toDo,
@@ -59,7 +70,7 @@ export class ListarPendientesComponent implements OnInit {
         if (!confirmado) return;
         this.PendientesService.takePendiente(Pendiente).subscribe(() => {
           this.obtenerPendientes();
-          this.snackBar.open('Pendiente eliminado', undefined, {
+          this.snackBar.open(does, undefined, {
             duration: 1500,
           });
         });
