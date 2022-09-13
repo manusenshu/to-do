@@ -1,22 +1,22 @@
-<h3>Agregar Pediente <mat-icon>add_circle_outline</mat-icon></h3>
-<form (ngSubmit)="onSubmit()" #formPediente="ngForm">
+<h3>Agregar Pendiente <mat-icon>add_circle_outline</mat-icon></h3>
+<form (ngSubmit)="onSubmit()" #formPendiente="ngForm">
     <p>
         <mat-form-field>
-            <input matInput name="titulo" [(ngModel)]="PedienteModel.titulo"
+            <input matInput name="titulo" [(ngModel)]="PendienteModel.titulo"
                 type="text"
                 placeholder="Titulo">
         </mat-form-field>
     </p>
     <p>
         <mat-form-field>
-            <input matInput name="descripcion" [(ngModel)]="PedienteModel.descripcion"
+            <input matInput name="descripcion" [(ngModel)]="PendienteModel.descripcion"
                 type="text"
                 placeholder="Descripcion">
         </mat-form-field>
     </p>
     <p>
         <mat-form-field>
-            <input matInput name="fecha" [(ngModel)]="PedienteModel.fecha"
+            <input matInput name="fecha" [(ngModel)]="PendienteModel.fecha"
                 type="date"
                 placeholder="Fecha">
         </mat-form-field>

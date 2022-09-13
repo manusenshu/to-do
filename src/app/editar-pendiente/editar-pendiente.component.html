@@ -1,11 +1,11 @@
-<h3>Editar Pediente <mat-icon>check_circle_outline</mat-icon></h3>
-<form (ngSubmit)="onSubmit()" #formPediente="ngForm">
+<h3>Editar Pendiente <mat-icon>check_circle_outline</mat-icon></h3>
+<form (ngSubmit)="onSubmit()" #formPendiente="ngForm">
   <p>
     <mat-form-field>
       <input
         matInput
         name="titulo"
-        [(ngModel)]="Pediente.titulo"
+        [(ngModel)]="Pendiente.titulo"
         type="text"
         placeholder="Titulo"
       />
@@ -13,23 +13,26 @@
   </p>
   <p>
     <mat-form-field>
-      <input
+      <textarea
         matInput
         name="descripcion"
-        [(ngModel)]="Pediente.descripcion"
+        [(ngModel)]="Pendiente.descripcion"
         type="text"
+        rows="4"
+        maxlength="250"
         placeholder="Descripcion"
-      />
+      >
+      </textarea>
     </mat-form-field>
   </p>
   <p>
     <mat-form-field>
       <input
         matInput
-        name="fecha"
-        [(ngModel)]="Pediente.fecha"
+        name="caducidad"
+        [(ngModel)]="Pendiente.caducidad"
         type="date"
-        placeholder="Fecha"
+        placeholder="Caducidad"
       />
     </mat-form-field>
   </p>

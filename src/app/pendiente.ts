@@ -1,4 +1,4 @@
-export class Pediente {
+export class Pendiente {
     constructor(
         public titulo: string,
         public descripcion: string,

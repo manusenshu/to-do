@@ -1,39 +1,49 @@
-<h3>Listado de Pedientes</h3>
+<h3>Listado de Pendientes</h3>
 <table
   mat-table
-  [dataSource]="Pedientes"
+  [dataSource]="Pendientes"
   class="mat-elevation-z8"
   style="width:
     100%;"
 >
   <ng-container matColumnDef="titulo">
     <th mat-header-cell *matHeaderCellDef>Titulo</th>
-    <td mat-cell *matCellDef="let Pediente">{{ Pediente.titulo }}</td>
+    <td mat-cell *matCellDef="let Pendiente">{{ Pendiente.titulo }}</td>
   </ng-container>
   <ng-container matColumnDef="descripcion">
     <th mat-header-cell *matHeaderCellDef>Descripcion</th>
-    <td mat-cell *matCellDef="let Pediente">{{ Pediente.descripcion }}</td>
+    <td mat-cell *matCellDef="let Pendiente">{{ Pendiente.descripcion }}</td>
   </ng-container>
   <ng-container matColumnDef="fecha">
     <th mat-header-cell *matHeaderCellDef>Fecha</th>
-    <td mat-cell *matCellDef="let Pediente">{{ Pediente.fecha }}</td>
+    <td mat-cell *matCellDef="let Pendiente">{{ Pendiente.fecha }}</td>
   </ng-container>
   <ng-container matColumnDef="caducidad">
     <th mat-header-cell *matHeaderCellDef>Caducidad</th>
-    <td mat-cell *matCellDef="let Pediente">{{ Pediente.caducidad }}</td>
+    <td mat-cell *matCellDef="let Pendiente">{{ Pendiente.caducidad }}</td>
   </ng-container>
   <ng-container matColumnDef="editar">
     <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let Pediente">
-      <a mat-icon-button [routerLink]="['/Pedientes/editar', Pediente.id]">
+    <td mat-cell *matCellDef="let Pendiente">
+      <a mat-icon-button [routerLink]="['/Pendientes/editar', Pendiente.id]">
         <mat-icon color="primary">edit</mat-icon>
       </a>
     </td>
   </ng-container>
+  
+  <ng-container matColumnDef="tomar">
+  <th mat-header-cell *matHeaderCellDef></th>
+  <td mat-cell *matCellDef="let Pendiente">
+    <button (click)="tomarPendiente(Pendiente)" mat-icon-button>
+      <mat-icon color="warn">take</mat-icon>
+    </button>
+  </td>
+</ng-container>
+
   <ng-container matColumnDef="eliminar">
     <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let Pediente">
-      <button (click)="eliminarPediente(Pediente)" mat-icon-button>
+    <td mat-cell *matCellDef="let Pendiente">
+      <button (click)="eliminarPendiente(Pendiente)" mat-icon-button>
         <mat-icon color="warn">delete</mat-icon>
       </button>
     </td>
