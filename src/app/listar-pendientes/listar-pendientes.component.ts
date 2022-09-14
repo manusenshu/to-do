@@ -12,7 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 
 export class ListarPendientesComponent implements OnInit {
-  
+
   estado: string;
   cierre: string;
   cierres: string[] = ['2022-09-09', '2022-09-10', '2022-09-11', '2022-09-12', '2022-09-13', '2022-09-14'];
@@ -105,4 +105,5 @@ export class ListarPendientesComponent implements OnInit {
       (Pendientes: Pendiente[]) => (this.Pendientes = Pendientes)
     );
   }
+  
 }

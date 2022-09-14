@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+import { TableFilterPipe } from './table-filter.pipe';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AgregarPendienteComponent } from './agregar-pendiente/agregar-pendiente.component';
@@ -30,6 +31,7 @@ import { AcercaDeComponent } from './acerca-de/acerca-de.component';
     DialogoConfirmacionComponent,
     EditarPendienteComponent,
     AcercaDeComponent,
+    TableFilterPipe,
   ],
   entryComponents: [DialogoConfirmacionComponent],
   imports: [
@@ -49,6 +51,7 @@ import { AcercaDeComponent } from './acerca-de/acerca-de.component';
     MatTableModule,
     MatDialogModule,
     MatSnackBarModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

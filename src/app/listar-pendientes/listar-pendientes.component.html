@@ -16,7 +16,7 @@
     <select class="form-control" name="cierre" [(ngModel)]="cierre">
       <option></option>
       <option *ngFor="let cierre of Pendientes" [value]="cierre">
-        {{ cierre }}
+        {{ cierres }}
       </option>
     </select>
   </div>
@@ -98,7 +98,7 @@
         'eliminar'
       ]"
     ></tr>
-    <tr
+    <tr 
       mat-row
       *matRowDef="
         let fila;
@@ -115,4 +115,5 @@
       "
     ></tr>
   </table>
+
 </form>
