@@ -23,8 +23,6 @@ import { EditarPendienteComponent } from './editar-pendiente/editar-pendiente.co
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AcercaDeComponent } from './acerca-de/acerca-de.component';
 
-import { TableFilterPipe } from './table-filter.pipe';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +32,7 @@ import { TableFilterPipe } from './table-filter.pipe';
     EditarPendienteComponent,
     AcercaDeComponent,
     ListarPendientesComponent, 
-    TableFilterPipe
+    
   ],
   entryComponents: [DialogoConfirmacionComponent],
   imports: [
@@ -61,5 +59,4 @@ import { TableFilterPipe } from './table-filter.pipe';
 })
 export class AppModule {}
 
-export class ListarPendientesModule { }
 
