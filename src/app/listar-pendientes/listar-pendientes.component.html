@@ -1,84 +1,93 @@
 <h3>Listado de Pendientes</h3>
-<table
-  mat-table
-  [dataSource]="Pendientes"
-  class="mat-elevation-z8"
-  style="width:
+
+<form novalidate #form="ngForm">
+  <div class="form-group">
+    <strong>Estado</strong>
+    <select class="form-control" name="estado" [(ngModel)]="estado">
+      <option></option>
+      <option value="0">Sin tomar</option>
+      <option value="1">En proceso</option>
+      <option value="2">Finalizados</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <strong>Cierre</strong>
+    <select class="form-control" name="cierre" [(ngModel)]="cierre">
+      <option></option>
+      <option *ngFor="let cierre of Pendientes" [value]="cierre">
+        {{ cierre }}
+      </option>
+    </select>
+  </div>
+
+  <br />
+
+  <table
+    mat-table
+    [dataSource]="Pendientes"
+    class="mat-elevation-z8"
+    style="width:
     100%;"
->
-  <ng-container matColumnDef="titulo">
-    <th mat-header-cell *matHeaderCellDef>Titulo</th>
-    <td mat-cell *matCellDef="let Pendiente">{{ Pendiente.titulo }}</td>
-  </ng-container>
-  <ng-container matColumnDef="descripcion">
-    <th mat-header-cell *matHeaderCellDef>Descripcion</th>
-    <td mat-cell *matCellDef="let Pendiente">{{ Pendiente.descripcion }}</td>
-  </ng-container>
-  <ng-container matColumnDef="fecha">
-    <th mat-header-cell *matHeaderCellDef>Fecha</th>
-    <td mat-cell *matCellDef="let Pendiente">{{ Pendiente.fecha }}</td>
-  </ng-container>
-  <ng-container matColumnDef="caducidad">
-    <th mat-header-cell *matHeaderCellDef>Caducidad</th>
-    <td mat-cell *matCellDef="let Pendiente">{{ Pendiente.caducidad }}</td>
-  </ng-container>
-  <ng-container matColumnDef="cierre">
-    <th mat-header-cell *matHeaderCellDef>Cierre</th>
-    <td mat-cell *matCellDef="let Pendiente">{{ Pendiente.cierre }}</td>
-  </ng-container>
-  <ng-container matColumnDef="estado">
-    <th mat-header-cell *matHeaderCellDef>Estado</th>
-    <td mat-cell *matCellDef="let Pendiente">{{ Pendiente.estado }}</td>
-  </ng-container>
-  <ng-container matColumnDef="editar">
-    <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let Pendiente">
-      <a mat-icon-button [routerLink]="['/pendientes/editar', Pendiente.id]">
-        <mat-icon>edit</mat-icon>
-      </a>
-    </td>
-  </ng-container>
+  >
+    <ng-container matColumnDef="titulo">
+      <th mat-header-cell *matHeaderCellDef>Titulo</th>
+      <td mat-cell *matCellDef="let Pendiente">{{ Pendiente.titulo }}</td>
+    </ng-container>
+    <ng-container matColumnDef="descripcion">
+      <th mat-header-cell *matHeaderCellDef>Descripcion</th>
+      <td mat-cell *matCellDef="let Pendiente">{{ Pendiente.descripcion }}</td>
+    </ng-container>
+    <ng-container matColumnDef="fecha">
+      <th mat-header-cell *matHeaderCellDef>Fecha</th>
+      <td mat-cell *matCellDef="let Pendiente">{{ Pendiente.fecha }}</td>
+    </ng-container>
+    <ng-container matColumnDef="caducidad">
+      <th mat-header-cell *matHeaderCellDef>Caducidad</th>
+      <td mat-cell *matCellDef="let Pendiente">{{ Pendiente.caducidad }}</td>
+    </ng-container>
+    <ng-container matColumnDef="cierre">
+      <th mat-header-cell *matHeaderCellDef>Cierre</th>
+      <td mat-cell *matCellDef="let Pendiente">{{ Pendiente.cierre }}</td>
+    </ng-container>
+    <ng-container matColumnDef="estado">
+      <th mat-header-cell *matHeaderCellDef>Estado</th>
+      <td mat-cell *matCellDef="let Pendiente">{{ Pendiente.estado }}</td>
+    </ng-container>
+    <ng-container matColumnDef="editar">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let Pendiente">
+        <a mat-icon-button [routerLink]="['/pendientes/editar', Pendiente.id]">
+          <mat-icon>edit</mat-icon>
+        </a>
+      </td>
+    </ng-container>
 
-  <ng-container matColumnDef="tomar">
-    <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let Pendiente">
-      <button
-        (click)="tomarPendiente(Pendiente)"
-        mat-icon-button
-        [ngStyle]="{ color: getColor(Pendiente.estado) }"
-      >
-        <mat-icon>offline_pin</mat-icon>
-      </button>
-    </td>
-  </ng-container>
+    <ng-container matColumnDef="tomar">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let Pendiente">
+        <button
+          (click)="tomarPendiente(Pendiente)"
+          mat-icon-button
+          [ngStyle]="{ color: getColor(Pendiente.estado) }"
+        >
+          <mat-icon>offline_pin</mat-icon>
+        </button>
+      </td>
+    </ng-container>
 
-  <ng-container matColumnDef="eliminar">
-    <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let Pendiente">
-      <button (click)="eliminarPendiente(Pendiente)" mat-icon-button>
-        <mat-icon color="warn">delete</mat-icon>
-      </button>
-    </td>
-  </ng-container>
+    <ng-container matColumnDef="eliminar">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let Pendiente">
+        <button (click)="eliminarPendiente(Pendiente)" mat-icon-button>
+          <mat-icon color="warn">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
 
-  <tr
-    mat-header-row
-    *matHeaderRowDef="[
-      'titulo',
-      'descripcion',
-      'fecha',
-      'caducidad',
-      'cierre',
-      'editar',
-      'tomar',
-      'eliminar'
-    ]"
-  ></tr>
-  <tr
-    mat-row
-    *matRowDef="
-      let fila;
-      columns: [
+    <tr
+      mat-header-row
+      *matHeaderRowDef="[
         'titulo',
         'descripcion',
         'fecha',
@@ -87,7 +96,24 @@
         'editar',
         'tomar',
         'eliminar'
-      ]
-    "
-  ></tr>
-</table>
+      ]"
+    ></tr>
+    <tr
+      *ngFor="let estado of Pendientes | tableFilter: form.value"
+      mat-row
+      *matRowDef="
+        let fila;
+        columns: [
+          'titulo',
+          'descripcion',
+          'fecha',
+          'caducidad',
+          'cierre',
+          'editar',
+          'tomar',
+          'eliminar'
+        ]
+      "
+    ></tr>
+  </table>
+</form>
