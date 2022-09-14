@@ -4,12 +4,19 @@ import { Pendiente } from '../pendiente';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogoConfirmacionComponent } from '../dialogo-confirmacion/dialogo-confirmacion.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-listar-pendientes',
   templateUrl: './listar-pendientes.component.html',
   styleUrls: ['./listar-pendientes.component.css'],
 })
+
 export class ListarPendientesComponent implements OnInit {
+  
+  estado: string;
+  cierre: string;
+  cierres: string[] = ['2022-09-09', '2022-09-10', '2022-09-11', '2022-09-12', '2022-09-13', '2022-09-14'];
+
   inicio = new Date('2022-09-06');
   public Pendientes: Pendiente[] = [
     new Pendiente(
