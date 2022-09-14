@@ -52,7 +52,6 @@ import { AcercaDeComponent } from './acerca-de/acerca-de.component';
     MatTableModule,
     MatDialogModule,
     MatSnackBarModule,
-    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
