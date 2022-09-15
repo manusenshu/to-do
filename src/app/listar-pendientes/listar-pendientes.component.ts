@@ -30,7 +30,7 @@ export class ListarPendientesComponent implements OnInit, AfterViewInit {
     ),
   ];
 
-  dataSource = new MatTableDataSource(this.Pendientes);
+  public dataSource = new MatTableDataSource(this.Pendientes);
   @ViewChild(MatSort) sort: MatSort;
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -113,7 +113,7 @@ export class ListarPendientesComponent implements OnInit, AfterViewInit {
 
   obtenerPendientes() {
     return this.PendientesService.getPendientes().subscribe(
-      (dataPendientes: Pendiente[]) => (this.Pendientes = dataPendientes)
+      (dataPendientes: Pendiente[]) => (this.dataSource = new MatTableDataSource(dataPendientes) ) 
     );
   }
   
