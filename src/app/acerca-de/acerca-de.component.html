@@ -8,27 +8,37 @@
 
 <h2>Guía rapida:</h2>
 
-<h3>Navegación</h3>
 <p>
-  <mat-icon color="primary">menu</mat-icon>
+  Da clic en cualquiera de los elemntos de la siguiente lista para acceder a una
+  breve descripción
+</p>
+
+<h3 (click)="showMenu = !showMenu">
+  <mat-icon color="primary">menu</mat-icon>&nbsp;Menú&nbsp;<mat-icon #expandMenu>expand_more</mat-icon>
+</h3>
+<p *ngIf="showMenu">
   En la esquina superior derecha siempre podrás encontrar un acceso rapido al
   menú de la aplicación para poder moverte entre sus diferentes apartados dando
   clic en cualquiera de sus elementos. Una vez seleccionado el apartado al que
   querramos acceder basta con dar clic nuevamente en icono del menú para
-  ocultarlo nuevamente
+  ocultarlo o simplementa dando clic de en el modulo para regresar a el.
 </p>
 
-<h3>Agregar Pendiente</h3>
-<p>
-  <mat-icon color="accent">add_circle_outline</mat-icon>
-  Dentro del menú encontraremos el apartado para agregar a la lista nuevos pendientes, para ello es necesario llenar el formulario con al menos un titulo y una breve descripción de la actividad a realizar, la caducidad o fecha limite podremos editarla posteriormente.
+<h3 (click)="showAgregar = !showAgregar">
+  <mat-icon color="accent">add_circle_outline</mat-icon>&nbsp;Agregar Pendiente
+</h3>
+<p *ngIf="showAgregar">
+  Dentro del menú encontraremos el apartado para agregar a la lista nuevos
+  pendientes, para ello es necesario llenar el formulario con al menos un titulo
+  y una breve descripción de la actividad a realizar, la caducidad o fecha
+  limite podremos editarla posteriormente.
 </p>
 
-<h3>Listado de Pendientes</h3>
-<p>
-  <mat-icon color="primary">list</mat-icon>
-  De igual forma que en el anterior apartado encontramos un modulo para visualizar en formato tabla los pendientes a gestionar en esta app, en este encntraremos la mayoría de la funciones aplicables para el presente manual.
+<h3 (click)="showListar = !showListar"><mat-icon color="primary">list</mat-icon>&nbsp;Listado de Pendientes</h3>
+<p *ngIf="showListar">
+  De igual forma que en el anterior apartado encontramos un modulo para
+  visualizar en formato tabla los pendientes a gestionar en esta app, en este
+  encntraremos la mayoría de la funciones aplicables para el presente manual.
 </p>
-
 
 <p>Dev. by Manusenshu</p>

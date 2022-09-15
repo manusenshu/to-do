@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./acerca-de.component.css']
 })
 export class AcercaDeComponent implements OnInit {
+  public showMenu: boolean = false;
+  public showAgregar: boolean = false;
+  public showListar: boolean = false;
 
   constructor() { }
 

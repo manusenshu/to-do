@@ -17,18 +17,26 @@ export class AgregarPendienteComponent implements OnInit {
   ) {}
 
   ngOnInit() {}
-  PendienteModel = new Pendiente('', '', undefined, undefined, undefined, undefined, undefined);
+  PendienteModel = new Pendiente(
+    '',
+    '',
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined
+  );
 
   volver() {
     this.router.navigate(['/pendientes']);
   }
-  
+
   onSubmit() {
     this.PendientesService.addPendiente(this.PendienteModel).subscribe(() => {
       this.snackBar.open('Pendiente guardado', undefined, {
         duration: 1500,
       });
-      this.router.navigate(['/pendientes']);
+      this.volver();
     });
   }
 }
