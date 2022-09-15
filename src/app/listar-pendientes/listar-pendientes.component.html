@@ -1,34 +1,19 @@
 <h3>Listado de Pendientes</h3>
 
 <form novalidate #form="ngForm">
-  <div class="form-group">
-    <strong>Estado</strong>
-    <select class="form-control" name="estado" [(ngModel)]="estado">
-      <option></option>
-      <option value="0">Sin tomar</option>
-      <option value="1">En proceso</option>
-      <option value="2">Finalizados</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <strong>Cierre</strong>
-    <select class="form-control" name="cierre" [(ngModel)]="cierre">
-      <option></option>
-      <option *ngFor="let cierre of Pendientes" [value]="cierre">
-        {{ cierres }}
-      </option>
-    </select>
-  </div>
-
+  <mat-form-field>
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="search" #input />
+  </mat-form-field>
   <br />
 
   <table
     mat-table
-    [dataSource]="Pendientes"
+    matSort
+    [dataSource]="dataSource"
     class="mat-elevation-z8"
     style="width:
-    100%;"
+  100%;"
   >
     <ng-container matColumnDef="titulo">
       <th mat-header-cell *matHeaderCellDef>Titulo</th>
@@ -85,6 +70,12 @@
       </td>
     </ng-container>
 
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data found "{{ input.value }}"</td>
+    </tr>
+<!--
     <tr
       mat-header-row
       *matHeaderRowDef="[
@@ -98,7 +89,7 @@
         'eliminar'
       ]"
     ></tr>
-    <tr 
+    <tr
       mat-row
       *matRowDef="
         let fila;
@@ -114,6 +105,6 @@
         ]
       "
     ></tr>
+  -->
   </table>
-
 </form>

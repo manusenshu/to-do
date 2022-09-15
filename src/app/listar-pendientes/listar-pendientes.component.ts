@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { PendientesService } from '../pendientes.service';
 import { Pendiente } from '../pendiente';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogoConfirmacionComponent } from '../dialogo-confirmacion/dialogo-confirmacion.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-listar-pendientes',
@@ -11,13 +13,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./listar-pendientes.component.css'],
 })
 
-export class ListarPendientesComponent implements OnInit {
-
-  estado: string;
-  cierre: string;
-  cierres: string[] = ['2022-09-09', '2022-09-10', '2022-09-11', '2022-09-12', '2022-09-13', '2022-09-14'];
+export class ListarPendientesComponent implements OnInit, AfterViewInit {
+  displayedColumns: string[] = ['titulo', 'descripcion', 'fecha', 'caducidad', 'cierre', 'editar', 'tomar', 'eliminar'];
 
   inicio = new Date('2022-09-06');
+  
   public Pendientes: Pendiente[] = [
     new Pendiente(
       'app to-do',
@@ -30,6 +30,17 @@ export class ListarPendientesComponent implements OnInit {
     ),
   ];
 
+  dataSource = new MatTableDataSource(this.Pendientes);
+  @ViewChild(MatSort) sort: MatSort;
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
+  }
+  
   constructor(
     private PendientesService: PendientesService,
     private dialogo: MatDialog,
@@ -102,8 +113,9 @@ export class ListarPendientesComponent implements OnInit {
 
   obtenerPendientes() {
     return this.PendientesService.getPendientes().subscribe(
-      (Pendientes: Pendiente[]) => (this.Pendientes = Pendientes)
+      (dataPendientes: Pendiente[]) => (this.Pendientes = dataPendientes)
     );
   }
   
 }
+
