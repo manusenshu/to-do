@@ -6,12 +6,6 @@ import { DialogoConfirmacionComponent } from '../dialogo-confirmacion/dialogo-co
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import {MatSelectModule} from '@angular/material/select';
-
-interface Estado {
-  value: string;
-  viewValue: string;
-}
 
 @Component({
   selector: 'app-listar-pendientes',
@@ -21,12 +15,6 @@ interface Estado {
 
 export class ListarPendientesComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['titulo', 'descripcion', 'fecha', 'caducidad', 'cierre', 'editar', 'tomar', 'eliminar'];
-
-  public estados: Estado[] = [
-    {value: '587587587', viewValue: 'Nuevos'},
-    {value: '588588588', viewValue: 'En Proceso'},
-    {value: '589589589', viewValue: 'Finalizados'},
-  ];
   
   inicio = new Date('2022-09-06');
   
