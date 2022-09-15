@@ -6,6 +6,12 @@ import { DialogoConfirmacionComponent } from '../dialogo-confirmacion/dialogo-co
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import {MatSelectModule} from '@angular/material/select';
+
+interface Estado {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-listar-pendientes',
@@ -16,6 +22,12 @@ import { MatTableDataSource } from '@angular/material/table';
 export class ListarPendientesComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['titulo', 'descripcion', 'fecha', 'caducidad', 'cierre', 'editar', 'tomar', 'eliminar'];
 
+  public estados: Estado[] = [
+    {value: '587587587', viewValue: 'Nuevos'},
+    {value: '588588588', viewValue: 'En Proceso'},
+    {value: '589589589', viewValue: 'Finalizados'},
+  ];
+  
   inicio = new Date('2022-09-06');
   
   public Pendientes: Pendiente[] = [
@@ -49,27 +61,29 @@ export class ListarPendientesComponent implements OnInit, AfterViewInit {
 
   getColor(estado) {
     switch (estado) {
-      case '0':
+      case '587587587':
         return 'lightblue';
-      case '1':
+      case '588588588':
         return 'blue';
-      case '2':
+      case '589589589':
         return 'green';
+        default:
+          return 'lightblue';
     }
   }
 
   tomarPendiente(Pendiente: Pendiente) {
     var toDo = '¿Deseas abrir nuevamente ' + Pendiente.titulo + '?';
     var does = 'Has abierto nuevamente el pendiente ' + Pendiente.titulo + '!';
-    if (Pendiente.estado == 0) {
+    if (Pendiente.estado == 0 || Pendiente.estado == 587587587) {
       toDo = '¿Deseas tomar el pendiente ' + Pendiente.titulo + '?';
       does = 'Has tomado el pendiente' + Pendiente.titulo + '!';
     }
-    if (Pendiente.estado == 1) {
+    if (Pendiente.estado == 588588588) {
       toDo = '¿Deseas finalizar ' + Pendiente.titulo + '?';
       does = 'Has finalizado el pendiente' + Pendiente.titulo + '!';
     }
-    if (Pendiente.estado == 2) {
+    if (Pendiente.estado == 589589589) {
       toDo = '¿Deseas abrir nuevamente ' + Pendiente.titulo + '?';
       does = 'Has abierto nuevamente el pendiente ' + Pendiente.titulo + '!';
     }

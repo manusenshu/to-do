@@ -23,6 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { EditarPendienteComponent } from './editar-pendiente/editar-pendiente.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AcercaDeComponent } from './acerca-de/acerca-de.component';
+import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +53,7 @@ import { AcercaDeComponent } from './acerca-de/acerca-de.component';
     MatDialogModule,
     MatSnackBarModule,
     FormsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent],

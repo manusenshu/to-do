@@ -2,6 +2,14 @@
 
 <form novalidate #form="ngForm">
   <mat-form-field>
+    
+  <mat-label>Favorite food</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let estado of estados" [value]="estado.value">
+      {{estado.viewValue}}
+    </mat-option>
+  </mat-select>
+
     <mat-label>Search</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="search" #input />
   </mat-form-field>
