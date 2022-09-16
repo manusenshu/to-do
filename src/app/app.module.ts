@@ -21,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DialogoConfirmacionComponent } from './dialogo-confirmacion/dialogo-confirmacion.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { EditarPendienteComponent } from './editar-pendiente/editar-pendiente.component';
+import { ReportePendientesComponent } from './reporte-pendientes/reporte-pendientes.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AcercaDeComponent } from './acerca-de/acerca-de.component';
@@ -32,6 +33,7 @@ import {MatSelectModule} from '@angular/material/select';
     ListarPendientesComponent,
     DialogoConfirmacionComponent,
     EditarPendienteComponent,
+    ReportePendientesComponent,
     AcercaDeComponent,
     TableFilterPipe,
   ],
