@@ -1,43 +1,39 @@
 <h3>Editar Pendiente <mat-icon>check_circle_outline</mat-icon></h3>
 <form (ngSubmit)="onSubmit()" #formPendiente="ngForm">
-  <p>
+<mat-form-field>
+  <mat-label>Estado</mat-label>
+  <select matNativeControl>
+    <option value="">Todos</option>
+    <option value="587587587">Nuevo</option>
+    <option value="588588588">En Proceso</option>
+    <option value="589589589">Terminado</option>
+  </select>
+</mat-form-field>
+&nbsp;
+<mat-form-field>
+  <mat-label>Tipo Fecha</mat-label>
+  <select matNativeControl>
+    <option value=""></option>
+    <option value="587587587">Inicio</option>
+    <option value="588588588">Caducidad</option>
+    <option value="589589589">Termino</option>
+  </select>
+</mat-form-field>
+&nbsp;
     <mat-form-field>
-      <input
-        matInput
-        name="titulo"
-        type="text"
-        placeholder="Titulo"
-      />
+      <input matInput name="inicio" type="date" placeholder="Fecha Inicio" />
     </mat-form-field>
-  </p>
+    &nbsp;
+      <mat-form-field>
+        <input matInput name="fin" type="date" placeholder="Fecha Fin" />
+      </mat-form-field>
   <p>
-    <mat-form-field>
-      <textarea
-        matInput
-        name="descripcion"
-        type="text"
-        rows="4"
-        maxlength="250"
-        placeholder="Descripcion"
-      >
-      </textarea>
-    </mat-form-field>
-  </p>
-  <p>
-    <mat-form-field>
-      <input
-        matInput
-        name="caducidad"
-        type="date"
-        placeholder="Caducidad"
-      />
-    </mat-form-field>
-  </p>
-  <p>
-  <button (click)="volver()" type="button" mat-flat-button color="primary">
-    Volver
-  </button>
-  &nbsp;
-    <button type="submit" mat-flat-button color="accent" style="float: right;">Guardar</button>
+    <button (click)="volver()" type="button" mat-flat-button color="primary">
+      Volver
+    </button>
+    &nbsp;
+    <button type="submit" mat-flat-button color="accent" style="float: right;">
+      Guardar
+    </button>
   </p>
 </form>

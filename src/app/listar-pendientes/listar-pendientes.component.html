@@ -1,23 +1,43 @@
 <h3>Listado de Pendientes</h3>
 
 <form novalidate #form="ngForm">
-<mat-form-field>
-  <mat-label>Estado</mat-label>
-  <select matNativeControl (change)="applyFilter($event); selectFecha.value = ''; searchInput.value = ''" #selectEstado>
-    <option value="">Todos</option>
-    <option value="587587587">Nuevo</option>
-    <option value="588588588">En Proceso</option>
-    <option value="589589589">Terminado</option>
-  </select>
+  <mat-form-field>
+    <mat-label>Estado</mat-label>
+    <select
+      matNativeControl
+      (change)="
+        applyFilter($event); selectFecha.value = ''; searchInput.value = ''
+      "
+      #selectEstado
+    >
+      <option value="">Todos</option>
+      <option value="587587587">Nuevo</option>
+      <option value="588588588">En Proceso</option>
+      <option value="589589589">Terminado</option>
+    </select>
   </mat-form-field>
   &nbsp;
   <mat-form-field>
-    <input matInput (change)="applyFilter($event); selectEstado.value = ''; searchInput.value = ''" type="date" placeholder="Fecha" #selectFecha/>
+    <input
+      matInput
+      (change)="
+        applyFilter($event); selectEstado.value = ''; searchInput.value = ''
+      "
+      type="date"
+      placeholder="Fecha"
+      #selectFecha
+    />
   </mat-form-field>
   &nbsp;
   <mat-form-field>
     <mat-label>Buscar</mat-label>
-    <input matInput (keyup)="applyFilter($event); selectFecha.value = ''; selectEstado.value = ''" #searchInput />
+    <input
+      matInput
+      (keyup)="
+        applyFilter($event); selectFecha.value = ''; selectEstado.value = ''
+      "
+      #searchInput
+    />
   </mat-form-field>
   <br />
 
