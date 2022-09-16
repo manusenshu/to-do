@@ -9,5 +9,4 @@ export class Pendiente {
         public lMod: Date,
         public id?: number,
     ) { }
-
 }

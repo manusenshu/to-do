@@ -39,4 +39,8 @@ export class PendientesService {
   finishPendiente(Pendiente: Pendiente) {
     return this.http.put(`${this.baseUrl}/finish.php`, Pendiente);
   }
+
+  reportPendiente(estado: string | number, tipoFecha: string | number, fechaInicio: Date, fechaFin: Date) {
+    return this.http.get(`${this.baseUrl}/report.php?estado=${estado}&tipoFecha=${tipoFecha}&fechaInicio=${fechaInicio}&fechaFin=${fechaFin}`);
+  }
 }
