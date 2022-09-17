@@ -1,4 +1,4 @@
-<h1>Acerca de</h1>
+<h1><mat-icon color="warn">info</mat-icon> Información</h1>
 
 <p>
   La presente es una app de desarrollo personal originada en PHP transformada
@@ -14,7 +14,9 @@
 </p>
 
 <h3 (click)="showMenu = !showMenu">
-  <mat-icon color="primary">menu</mat-icon>&nbsp;Menú&nbsp;<mat-icon #expandMenu>expand_more</mat-icon>
+  <mat-icon color="primary">menu</mat-icon>&nbsp;Menú&nbsp;<mat-icon #expandMenu
+    >expand_more</mat-icon
+  >
 </h3>
 <p *ngIf="showMenu">
   En la esquina superior derecha siempre podrás encontrar un acceso rapido al
@@ -34,7 +36,9 @@
   limite podremos editarla posteriormente.
 </p>
 
-<h3 (click)="showListar = !showListar"><mat-icon color="primary">list</mat-icon>&nbsp;Listado de Pendientes</h3>
+<h3 (click)="showListar = !showListar">
+  <mat-icon color="primary">list</mat-icon>&nbsp;Listado de Pendientes
+</h3>
 <p *ngIf="showListar">
   De igual forma que en el anterior apartado encontramos un modulo para
   visualizar en formato tabla los pendientes a gestionar en esta app, en este

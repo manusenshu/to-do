@@ -22,19 +22,19 @@ export class ReportePendientesComponent implements OnInit {
     'tomar',
   ];
 
-  inicio = new Date('2022-09-06');
-
   public Pendientes: Pendiente[] = [
     new Pendiente(
-      'app to-do',
-      'a simple personal task sheduler',
-      this.inicio,
+      'Sin datos:',
+      'se necesitar llenar el formulario para generar el reporte',
+      undefined,
       undefined,
       undefined,
       undefined,
       undefined
     ),
   ];
+
+  public myDate = new Date();
 
   public dataSource = new MatTableDataSource(this.Pendientes);
   @ViewChild(MatSort) sort: MatSort;
@@ -48,10 +48,10 @@ export class ReportePendientesComponent implements OnInit {
   }
 
   public FormularioReporte: FormularioReporte = new FormularioReporte(
+    0,
+    1,
     undefined,
-    undefined,
-    undefined,
-    new Date()
+    undefined
   );
 
   constructor(
@@ -74,19 +74,14 @@ export class ReportePendientesComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onSubmit() {
-    let estado = this.FormularioReporte.estado;
-    let tipoFecha = this.FormularioReporte.tipoFecha;
-    let fechaInicio = this.FormularioReporte.fechaInicio;
-    let fechaFin = this.FormularioReporte.fechaFin;
     this.PendientesService.reportPendiente(
-      estado,
-      tipoFecha,
-      fechaInicio,
-      fechaFin
+      this.FormularioReporte.estado,
+      this.FormularioReporte.tipoFecha,
+      this.FormularioReporte.fechaInicio,
+      this.FormularioReporte.fechaFin
     ).subscribe(
       (dataPendientes: Pendiente[]) =>
         (this.dataSource = new MatTableDataSource(dataPendientes))
