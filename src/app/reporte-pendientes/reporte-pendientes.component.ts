@@ -40,7 +40,9 @@ export class ReportePendientesComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
-  public FormularioReporte: FormularioReporte = new FormularioReporte(undefined, undefined, undefined, undefined);
+  public FormularioReporte: FormularioReporte = new FormularioReporte(undefined, undefined, undefined, this.inicio);
+
+
 
   constructor(
     private route: ActivatedRoute,

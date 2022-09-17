@@ -1,8 +1,9 @@
-<h3>Reporte Pendientes <mat-icon>check_circle_outline</mat-icon></h3>
+<h3>Reporte Pendientes <mat-icon>insert_drive_file</mat-icon></h3>
 <form (ngSubmit)="onSubmit()" #formPendiente="ngForm">
   <mat-form-field>
     <mat-label>Estado</mat-label>
-    <select matNativeControl>
+    <select matNativeControl
+    [(ngModel)]="FormularioReporte.estado" [ngModelOptions]="{standalone: true}">
       <option value="">Todos</option>
       <option value="587587587">Nuevo</option>
       <option value="588588588">En Proceso</option>
@@ -12,7 +13,8 @@
   &nbsp;
   <mat-form-field>
     <mat-label>Tipo Fecha</mat-label>
-    <select matNativeControl>
+    <select matNativeControl 
+    [(ngModel)]="FormularioReporte.tipoFecha" [ngModelOptions]="{standalone: true}">
       <option value="1">Inicio</option>
       <option value="2">Caducidad</option>
       <option value="3">Termino</option>
@@ -20,11 +22,13 @@
   </mat-form-field>
   &nbsp;
   <mat-form-field>
-    <input matInput name="inicio" type="date" placeholder="Fecha del" />
+    <input matInput name="inicio" type="date" placeholder="Fecha del"
+    [(ngModel)]="FormularioReporte.fechaInicio" [ngModelOptions]="{standalone: true}"/>
   </mat-form-field>
   &nbsp;
   <mat-form-field>
-    <input matInput name="fin" type="date" placeholder="a la fecha" />
+    <input matInput name="fin" type="date" placeholder="a la fecha" 
+    [(ngModel)]="FormularioReporte.fechaFin" [ngModelOptions]="{standalone: true}"/>
   </mat-form-field>
   &nbsp;
   <button type="submit" mat-flat-button color="accent" style="float: right;">
