@@ -13,10 +13,17 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./reporte-pendientes.component.css'],
 })
 export class ReportePendientesComponent implements OnInit {
-  displayedColumns: string[] = ['titulo', 'descripcion', 'fecha', 'caducidad', 'cierre', 'editar', 'tomar', 'eliminar'];
-  
+  displayedColumns: string[] = [
+    'titulo',
+    'descripcion',
+    'fecha',
+    'caducidad',
+    'cierre',
+    'tomar',
+  ];
+
   inicio = new Date('2022-09-06');
-  
+
   public Pendientes: Pendiente[] = [
     new Pendiente(
       'app to-do',
@@ -28,7 +35,7 @@ export class ReportePendientesComponent implements OnInit {
       undefined
     ),
   ];
-  
+
   public dataSource = new MatTableDataSource(this.Pendientes);
   @ViewChild(MatSort) sort: MatSort;
   applyFilter(event: Event) {
@@ -40,9 +47,12 @@ export class ReportePendientesComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
-  public FormularioReporte: FormularioReporte = new FormularioReporte(undefined, undefined, undefined, this.inicio);
-
-
+  public FormularioReporte: FormularioReporte = new FormularioReporte(
+    undefined,
+    undefined,
+    undefined,
+    new Date()
+  );
 
   constructor(
     private route: ActivatedRoute,
@@ -50,6 +60,19 @@ export class ReportePendientesComponent implements OnInit {
     private PendientesService: PendientesService,
     private snackBar: MatSnackBar
   ) {}
+
+  getColor(estado) {
+    switch (estado) {
+      case 'Nuevo':
+        return 'lightblue';
+      case 'En Proceso':
+        return 'blue';
+      case 'Terminado':
+        return 'green';
+      default:
+        return 'lightblue';
+    }
+  }
 
   ngOnInit() {
   }
@@ -59,9 +82,14 @@ export class ReportePendientesComponent implements OnInit {
     let tipoFecha = this.FormularioReporte.tipoFecha;
     let fechaInicio = this.FormularioReporte.fechaInicio;
     let fechaFin = this.FormularioReporte.fechaFin;
-    this.PendientesService.reportPendiente(estado, tipoFecha, fechaInicio, fechaFin).subscribe(
-      (dataPendientes: Pendiente[]) => (this.dataSource = new MatTableDataSource(dataPendientes) ) 
+    this.PendientesService.reportPendiente(
+      estado,
+      tipoFecha,
+      fechaInicio,
+      fechaFin
+    ).subscribe(
+      (dataPendientes: Pendiente[]) =>
+        (this.dataSource = new MatTableDataSource(dataPendientes))
     );
   }
 }
-
