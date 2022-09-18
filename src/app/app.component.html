@@ -7,19 +7,19 @@
       <h1>Menú</h1>
     </mat-toolbar>
     <mat-list role="list">
-      <a mat-list-item routerLink="/pendientes/agregar">
+      <a mat-list-item routerLink="/pendientes/agregar" (click)="sidenav.toggle()">
         <mat-icon color="accent">add_circle_outline</mat-icon>
         Agregar Pendiente
       </a>
-      <a mat-list-item routerLink="/pendientes">
+      <a mat-list-item routerLink="/pendientes" (click)="sidenav.toggle()">
         <mat-icon color="primary">list</mat-icon>
         Listado de Pendientes
       </a>
-      <a mat-list-item routerLink="/pendientes/reporte">
+      <a mat-list-item routerLink="/pendientes/reporte" (click)="sidenav.toggle()">
         <mat-icon color="primary">insert_drive_file</mat-icon>
         Reporte Pendientes
       </a>
-      <a mat-list-item routerLink="/acerca-de">
+      <a mat-list-item routerLink="/acerca-de" (click)="sidenav.toggle()">
         <mat-icon color="warn">info</mat-icon>
         Información
       </a>
