@@ -1,8 +1,12 @@
-<h3><mat-icon>insert_drive_file</mat-icon> Reporte Pendientes </h3>
+<h3><mat-icon color="primary">insert_drive_file</mat-icon> Reporte Pendientes</h3>
 <form (ngSubmit)="onSubmit()" #formPendiente="ngForm">
   <mat-form-field>
     <mat-label>Estado</mat-label>
-    <select matNativeControl [(ngModel)]="FormularioReporte.estado" [ngModelOptions]="{standalone: true}">
+    <select
+      matNativeControl
+      [(ngModel)]="FormularioReporte.estado"
+      [ngModelOptions]="{ standalone: true }"
+    >
       <option value="0" selected>Todos</option>
       <option value="587587587">Nuevo</option>
       <option value="588588588">En Proceso</option>
@@ -12,7 +16,11 @@
   &nbsp;
   <mat-form-field>
     <mat-label>Tipo Fecha</mat-label>
-    <select matNativeControl [(ngModel)]="FormularioReporte.tipoFecha" [ngModelOptions]="{standalone: true}">
+    <select
+      matNativeControl
+      [(ngModel)]="FormularioReporte.tipoFecha"
+      [ngModelOptions]="{ standalone: true }"
+    >
       <option value="1" selected>Inicio</option>
       <option value="2">Caducidad</option>
       <option value="3">Termino</option>
@@ -20,19 +28,34 @@
   </mat-form-field>
   &nbsp;
   <mat-form-field>
-    <input matInput name="inicio" type="date" placeholder="Fecha del" required
-    [(ngModel)]="FormularioReporte.fechaInicio" [ngModelOptions]="{standalone: true}"/>
+    <input
+      matInput
+      name="inicio"
+      type="date"
+      placeholder="Fecha del"
+      required
+      [(ngModel)]="FormularioReporte.fechaInicio"
+      [ngModelOptions]="{ standalone: true }"
+    />
   </mat-form-field>
   &nbsp;
   <mat-form-field>
-    <input matInput name="fin" type="date" placeholder="a la fecha" required
-    [(ngModel)]="FormularioReporte.fechaFin" [ngModelOptions]="{standalone: true}" value="{ Pendiente.titulo }"/>
+    <input
+      matInput
+      name="fin"
+      type="date"
+      placeholder="a la fecha"
+      required
+      [(ngModel)]="FormularioReporte.fechaFin"
+      [ngModelOptions]="{ standalone: true }"
+      value="{ Pendiente.titulo }"
+    />
   </mat-form-field>
   &nbsp;
   <button type="submit" mat-flat-button color="accent" style="float: right;">
     Generar Reporte
   </button>
-  
+  <br />
   <table
     mat-table
     matSort
