@@ -1,38 +1,43 @@
-<h3><mat-icon>add_circle_outline</mat-icon> Agregar Pendiente </h3>
+<h3><mat-icon>add_circle_outline</mat-icon> Agregar Pendiente</h3>
 <form (ngSubmit)="onSubmit()" #formPendiente="ngForm">
-    <p>
-        <mat-form-field>
-            <input matInput name="titulo" [(ngModel)]="PendienteModel.titulo"
-                type="text"
-                placeholder="Titulo">
-        </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field>
-        <textarea
-          matInput
-          name="descripcion"
-          [(ngModel)]="PendienteModel.descripcion"
-          type="text"
-          rows="4"
-          maxlength="250"
-          placeholder="Descripcion"
-        >
-        </textarea>
-      </mat-form-field>
-    </p>
-    <p>
-        <mat-form-field>
-            <input matInput name="caducidad" [(ngModel)]="PendienteModel.caducidad"
-                type="date"
-                placeholder="Caducidad">
-        </mat-form-field>
-    </p>
-    <p>
-    <button (click)="volver()" type="button" mat-flat-button color="primary">
-      Volver
-    </button>
-    &nbsp;
-      <button type="submit" mat-flat-button color="accent" style="float: right;">Guardar</button>
-    </p>
+  <mat-form-field>
+    <input
+      matInput
+      name="titulo"
+      [(ngModel)]="PendienteModel.titulo"
+      type="text"
+      placeholder="Titulo"
+    />
+  </mat-form-field>
+  &nbsp;
+  <mat-form-field>
+    <input
+      matInput
+      name="caducidad"
+      [(ngModel)]="PendienteModel.caducidad"
+      type="date"
+      placeholder="Caducidad"
+    />
+  </mat-form-field>
+  &nbsp;
+  <mat-form-field>
+    <textarea
+      matInput
+      name="descripcion"
+      [(ngModel)]="PendienteModel.descripcion"
+      type="text"
+      rows="4"
+      maxlength="250"
+      placeholder="Descripcion"
+    >
+    </textarea>
+  </mat-form-field>
+  &nbsp;
+  <button (click)="volver()" type="button" mat-flat-button color="primary">
+    Volver
+  </button>
+  &nbsp;
+  <button type="submit" mat-flat-button color="accent" style="float: right;">
+    Guardar
+  </button>
 </form>
