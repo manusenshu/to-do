@@ -10,13 +10,14 @@
 
 <p>
   Da clic en cualquiera de los elemntos de la siguiente lista para acceder a una
-  breve descripción
+  breve descripción, tambien puedes dar clic nuevamente para ocultarla.
 </p>
 
 <h3 (click)="showMenu = !showMenu">
   <mat-icon color="primary">menu</mat-icon>
   &nbsp;Menú&nbsp;
-  <mat-icon #expandMenu>expand_more</mat-icon>
+  <mat-icon *ngIf="!showMenu">expand_more</mat-icon>
+  <mat-icon *ngIf="showMenu">expand_less</mat-icon>
 </h3>
 <p *ngIf="showMenu">
   En la esquina superior derecha siempre podrás encontrar un acceso rapido al
@@ -29,7 +30,8 @@
 <h3 (click)="showAgregar = !showAgregar">
   <mat-icon color="accent">add_circle_outline</mat-icon>
   &nbsp;Agregar Pendiente&nbsp;
-  <mat-icon #expandMenu>expand_more</mat-icon>
+  <mat-icon *ngIf="!showAgregar">expand_more</mat-icon>
+  <mat-icon *ngIf="showAgregar">expand_less</mat-icon>
 </h3>
 <p *ngIf="showAgregar">
   Dentro del menú encontraremos el apartado para agregar a la lista nuevos
@@ -41,7 +43,8 @@
 <h3 (click)="showListar = !showListar">
   <mat-icon color="primary">list</mat-icon>
   &nbsp;Listado de Pendientes&nbsp;
-  <mat-icon #expandMenu>expand_more</mat-icon>
+  <mat-icon *ngIf="!showListar">expand_more</mat-icon>
+  <mat-icon *ngIf="showListar">expand_less</mat-icon>
 </h3>
 <p *ngIf="showListar">
   De igual forma que en el anterior apartado encontramos un modulo para
