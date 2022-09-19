@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: "http://localhost/Pedientes_angular",
+  baseUrl: "https://manusenshu.com/to-do",
 };
 
 /*

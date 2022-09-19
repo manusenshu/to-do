@@ -1,2 +1,94 @@
-<h1>Acerca de</h1>
-<p>Dev. by Manusenshu</p>
+<div style="max-width: 980px;">
+  <h1><mat-icon color="warn">info</mat-icon> Información</h1>
+
+  <p>
+    La presente es una app de desarrollo personal originada en PHP transformada
+    para su uso en Node pero reutilizando el back original son su base de datos
+    en Maria DB.
+  </p>
+
+  <h2>Guía rápida:</h2>
+  <p>
+    Da clic en cualquiera de los elementos de la siguiente lista para acceder a
+    una breve descripción, también puedes dar clic nuevamente para ocultarla.
+  </p>
+
+  <h3 (click)="showMenu = !showMenu">
+    <mat-icon color="primary">menu</mat-icon>
+    &nbsp;Menú&nbsp;
+    <mat-icon *ngIf="!showMenu">expand_more</mat-icon>
+    <mat-icon *ngIf="showMenu">expand_less</mat-icon>
+  </h3>
+  <p *ngIf="showMenu">
+    En la esquina superior derecha siempre podrás encontrar un acceso rápido al
+    menú de la aplicación para poder moverte entre sus diferentes apartados
+    dando clic en cualquiera de sus elementos. Una vez seleccionado el apartado
+    al que queramos acceder basta con dar clic nuevamente en icono del menú para
+    ocultarlo o simplemente dando clic de en el módulo para regresar a él.
+  </p>
+
+  <h3 (click)="showAgregar = !showAgregar">
+    <mat-icon color="accent">add_circle_outline</mat-icon>
+    &nbsp;Agregar Pendiente&nbsp;
+    <mat-icon *ngIf="!showAgregar">expand_more</mat-icon>
+    <mat-icon *ngIf="showAgregar">expand_less</mat-icon>
+  </h3>
+  <p *ngIf="showAgregar">
+    Dentro del menú encontraremos el apartado para agregar a la lista nuevos
+    pendientes, para ello es necesario llenar el formulario con al menos un
+    título y una breve descripción de la actividad a realizar, la caducidad o
+    fecha límite podremos editarla posteriormente.
+  </p>
+
+  <h3 (click)="showListar = !showListar">
+    <mat-icon color="primary">list</mat-icon>
+    &nbsp;Listado de Pendientes&nbsp;
+    <mat-icon *ngIf="!showListar">expand_more</mat-icon>
+    <mat-icon *ngIf="showListar">expand_less</mat-icon>
+  </h3>
+  <div *ngIf="showListar">
+    <p>
+      De igual forma que en el anterior apartado encontramos un módulo para
+      visualizar en formato tabla los pendientes a gestionar en esta app, en
+      este encontraremos la mayoría de las funciones aplicables para el presente
+      manual.
+    </p>
+    <b> <mat-icon color="primary">edit</mat-icon> Editar: </b>
+    En el listado de pendientes encontraremos un botón con el icono de editar en
+    cada fila para acceder al módulo de actualización de la información del
+    pendiente en caso de que este haya sido mal dado de alta o se haya cambiado
+    algún dato referente al mismo.
+    <br />
+    <b> <mat-icon color="primary">offline_pin</mat-icon> Estado: </b>
+    La siguiente columna hace referencia al actual estado del pendiente, es
+    decir la fase del ciclo de vida en que se encuentre, sea:
+    <b> <mat-icon style="color:lightblue">offline_pin</mat-icon> Nuevo </b>
+    <b> <mat-icon style="color:blue">offline_pin</mat-icon> En Proceso </b>
+    <b> <mat-icon style="color:green">offline_pin</mat-icon> Terminado </b>.
+    Para cada uno de ellos podremos cambiar su estado dando clic en el botón
+    para así poder tomar un pendiente nuevo, finalizar uno que se encuentre en
+    proceso o finalmente reabrir un pendiente que se haya finalizado por error.
+    <br />
+    <b> <mat-icon color="warn">delete</mat-icon> Eliminar: </b>
+    Al final de cada fila del listado tendremos un botón con el icono de
+    eliminar usado en caso de existir redundancia en los pendientes listados o
+    que simplemente no sea necesaria la existencia de este pendiente.
+  </div>
+
+  <h3 (click)="showReporta = !showReporta">
+    <mat-icon color="primary">insert_drive_file</mat-icon>
+    &nbsp;Reporte de Pendientes&nbsp;
+    <mat-icon *ngIf="!showReporta">expand_more</mat-icon>
+    <mat-icon *ngIf="showReporta">expand_less</mat-icon>
+  </h3>
+  <p *ngIf="showReporta">
+    El último módulo listado en el menú está diseñado para crear un reporte en
+    formato de tabla con los pendientes organizados mediante la búsqueda de
+    pendientes (abiertos, en proceso o cerrados) en un rango de fechas (ya sea
+    por apertura, caducidad o cierre) para así de forma automatizada crear un
+    documento entregable que resuma las actividades realizadas o pendientes para
+    su administración fuera de la app.
+  </p>
+
+  <p>Dev. by Manusenshu</p>
+</div>

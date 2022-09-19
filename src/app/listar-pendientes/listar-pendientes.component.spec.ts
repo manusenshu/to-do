@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AcercaDeComponent } from './acerca-de.component';
+import { ListarPendientesComponent } from './listar-pendientes.component';
 
-describe('AcercaDeComponent', () => {
-  let component: AcercaDeComponent;
-  let fixture: ComponentFixture<AcercaDeComponent>;
+describe('ListarPendientesComponent', () => {
+  let component: ListarPendientesComponent;
+  let fixture: ComponentFixture<ListarPendientesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AcercaDeComponent],
+      declarations: [ListarPendientesComponent],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AcercaDeComponent);
+    fixture = TestBed.createComponent(ListarPendientesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AgregarPedienteComponent } from './agregar-pediente/agregar-pediente.component';
-import { ListarPedientesComponent } from './listar-pedientes/listar-pedientes.component';
-import { EditarPedienteComponent } from './editar-pediente/editar-pediente.component';
 import { AcercaDeComponent } from './acerca-de/acerca-de.component';
+import { AgregarPendienteComponent } from './agregar-pendiente/agregar-pendiente.component';
+import { ListarPendientesComponent } from './listar-pendientes/listar-pendientes.component';
+import { EditarPendienteComponent } from './editar-pendiente/editar-pendiente.component';
+import { ReportePendientesComponent } from './reporte-pendientes/reporte-pendientes.component';
 
 const routes: Routes = [
   { path: "acerca-de", component: AcercaDeComponent },
-  { path: "Pedientes", component: ListarPedientesComponent },
-  { path: "Pedientes/agregar", component: AgregarPedienteComponent },
-  { path: "Pedientes/editar/:id", component: EditarPedienteComponent },
-  { path: "", redirectTo: "/Pedientes", pathMatch: "full" },// Cuando es la raíz
-  { path: "**", redirectTo: "/Pedientes" }
+  { path: "pendientes", component: ListarPendientesComponent },
+  { path: "pendientes/agregar", component: AgregarPendienteComponent },
+  { path: "pendientes/editar/:id", component: EditarPendienteComponent },
+  { path: "pendientes/reporte", component: ReportePendientesComponent },
+  { path: "", redirectTo: "/pendientes", pathMatch: "full" },// Cuando es la raíz
+  { path: "**", redirectTo: "/pendientes" }
 ];
 
 @NgModule({

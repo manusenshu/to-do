@@ -1,5 +1,5 @@
 <?php
-header("Access-Control-Allow-Origin: http://localhost:4200");
+header("Access-Control-Allow-Origin: https://to-do-angular.stackblitz.io" );
 header("Access-Control-Allow-Methods: PUT");
 header("Access-Control-Allow-Headers: *");
 if ($_SERVER["REQUEST_METHOD"] != "PUT") {
@@ -10,6 +10,6 @@ if (!$jsonPendiente) {
     exit("No hay datos");
 }
 $bd = include_once "bd.php";
-$sentencia = $bd->prepare("UPDATE pendientes SET titulo = ?, descripcion = ?, fecha = ? WHERE id = ?");
-$resultado = $sentencia->execute([$jsonPendiente->titulo, $jsonPendiente->descripcion, $jsonPendiente->fecha, $jsonPendiente->id]);
+$sentencia = $bd->prepare("UPDATE pendientes SET titulo = ?, descripcion = ?, caducidad = ?, lMod = CURDATE() WHERE id = ?");
+$resultado = $sentencia->execute([$jsonPendiente->titulo, $jsonPendiente->descripcion, $jsonPendiente->caducidad, $jsonPendiente->id]);
 echo json_encode($resultado);

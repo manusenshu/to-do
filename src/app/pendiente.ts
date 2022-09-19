@@ -1,4 +1,4 @@
-export class Pediente {
+export class Pendiente {
     constructor(
         public titulo: string,
         public descripcion: string,
@@ -9,5 +9,4 @@ export class Pediente {
         public lMod: Date,
         public id?: number,
     ) { }
-
 }

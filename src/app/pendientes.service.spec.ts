@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PedientesService } from './Pedientes.service';
+import { PendientesService } from './pendientes.service';
 
-describe('PedientesService', () => {
+describe('PendientesService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: PedientesService = TestBed.get(PedientesService);
+    const service: PendientesService = TestBed.get(PendientesService);
     expect(service).toBeTruthy();
   });
 });

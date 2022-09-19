@@ -1,0 +1,11 @@
+.mat-icon {
+  vertical-align: middle;
+}
+
+.positive {
+  background-color: green;
+}
+
+.negative {
+  background-color: red;
+}

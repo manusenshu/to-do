@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'crud-angular-php-mysql'`, () => {
+  it(`should have as title 'to-do'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('crud-angular-php-mysql');
+    expect(app.title).toEqual('to-do');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('crud-angular-php-mysql app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('to-do app is running!');
   });
 });

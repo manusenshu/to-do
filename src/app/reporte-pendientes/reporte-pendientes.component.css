@@ -1,0 +1,11 @@
+.mat-icon,
+.button {
+  vertical-align: middle;
+}
+
+@media print {
+  .mat-form-field,
+  .mat-flat-button {
+    display: none;
+  }
+}
